@@ -1,20 +1,19 @@
 "use client";
 
 import {useState} from "react";
-import { login } from "../api/api";
+import { register } from "../api/api";
 import { useRouter } from "next/navigation";
 
 
-export default function Login() {
+export default function Home() {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
-
+  const [name, setName] = useState('');
   const router = useRouter();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const data = await login(username, password);
-    router.push("../register/");
+    const data = await register(username, name, password);
     //ver si tenemos que redirigir a otra pagina o mostrar un mensaje de error
   }
 
@@ -25,7 +24,7 @@ export default function Login() {
     <div className="flex min-h-screen flex-col justify-center px-6 py-12 lg:px-8 bg-gray-900">
       <div className="sm:mx-auto sm:w-full sm:max-w-sm">
         <h2 className="mt-10 text-center text-2xl font-bold text-white">
-          Ingresa a tu cuenta
+          Crea tu cuenta
         </h2>
       </div>
 
@@ -44,6 +43,23 @@ export default function Login() {
                 value = {username}
                 onChange={(e) => setUsername(e.target.value)}
                 autoComplete="given-name"
+                className="block w-full rounded-md bg-white/5 px-3 py-2 text-white outline outline-1 outline-white/10 focus:outline-2 focus:outline-indigo-500"
+              />
+            </div>
+          </div>
+
+          <div>
+            <label className="block text-sm font-medium text-gray-100">
+              Nombre
+            </label>
+            <div className="mt-2">
+              <input
+                id="name"
+                name="name"
+                type="text"
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+                autoComplete="family-name"
                 className="block w-full rounded-md bg-white/5 px-3 py-2 text-white outline outline-1 outline-white/10 focus:outline-2 focus:outline-indigo-500"
               />
             </div>
