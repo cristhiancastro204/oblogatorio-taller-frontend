@@ -32,7 +32,7 @@ const login = async (username, password) => {
 }
 
 const postLocal = async (name, type, priceRange , city, zone, address , hours , photos) =>{
-    const response = await fetch(`${BASE_URL}/api/locals`,{
+    const response = await fetch(`${URL}/api/locals`,{
         method: "POST",
         headers:{"Content-Type" : "application/json",
             "Authorization" : `Bearer ${localStorage.getItem("token")}`
