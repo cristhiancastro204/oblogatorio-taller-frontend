@@ -6,7 +6,9 @@ const principal = () => {
   return (
   <div>
     <Navbar></Navbar>
-    <h1>Pagina Principal Prueba</h1>
+    <h1>Pagina Principal Prueba
+      Cambios realizadossss
+    </h1>
 
 
   </div>
