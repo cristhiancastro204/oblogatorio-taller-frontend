@@ -1,16 +1,17 @@
 "use client";
+
 import { Navbar } from "../../components/Reutilizables"
 import {useState, useEffect} from "react";
 
-const principal = () => {
-  return (
+
+const profile = () => {
+  return (  
   <div>
     <Navbar></Navbar>
-    <h1>Pagina Principal Prueba</h1>
 
 
-  </div>
-  );
+
+    <h1>Perfil</h1>
+  </div>);
 }
-
-export default principal;
+export default profile;

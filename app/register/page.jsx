@@ -12,14 +12,22 @@ export default function Home() {
   const router = useRouter();
 
   const handleSubmit = async (e) => {
-    e.preventDefault();
+  e.preventDefault();
+  try {
     const data = await register(username, name, password);
-    router.push("/Principal/");
+    if (data) {
+      router.push("/Principal/");
+    } else {
+      alert("Error al crear la cuenta");
+    }
+  } catch (error) {
+    alert("Error al registrarse");
+    console.error(error);
   }
+}
 
   const handleSubmit2 = async (e) => {
     e.preventDefault();
-    const data = await register(username, name, password);
     router.push("/");
   }
 
@@ -96,16 +104,16 @@ export default function Home() {
               Sign Up
             </button>
             <br></br>
-            <button
+          </div>
+
+        </form>
+        <button
               type="submit"
               onClick={handleSubmit2}
               className="flex w-full justify-center rounded-md bg-indigo-500 px-3 py-2 text-sm font-semibold text-white hover:bg-indigo-400"
             >
               Sign In
-            </button>
-          </div>
-
-        </form>
+        </button>
       </div>
     </div>
   );

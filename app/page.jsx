@@ -12,25 +12,36 @@ export default function Login() {
   const router = useRouter();
 
   const handleSubmit = async (e) => {
-    e.preventDefault();
+  e.preventDefault();
+  
+  try {
     const data = await login(username, password);
-    router.push("/Principal/");
+    
+    // Verificar si el login fue exitoso
+    if (data.token) {
+      router.push("/Principal/");
+    } else {
+      alert("Usuario o contraseña incorrectos");
+    }
+    
+  } catch (error) {
+    alert("Error al iniciar sesión");
+    console.error(error);
   }
+}
 
-    const handleSubmit2 = async (e) => {
-    e.preventDefault();
-    const data = await login(username, password);
-    router.push("/register/");
+  const handleSubmit2 = async (e) => {
+  e.preventDefault();
+  router.push("/Register/");
     //ver si tenemos que redirigir a otra pagina o mostrar un mensaje de error
   }
 
 
   return (
- 
     <div className="flex min-h-screen flex-col justify-center px-6 py-12 lg:px-8 bg-gray-900">
       <div className="sm:mx-auto sm:w-full sm:max-w-sm">
         <h2 className="mt-10 text-center text-2xl font-bold text-white">
-          Sign In to your account
+          Login your account
         </h2>
       </div>
 
@@ -80,16 +91,17 @@ export default function Login() {
               Sign In
             </button>
             <br></br>
-            <button
+            
+          </div>
+
+        </form>
+        <button
               type="button"
               onClick={handleSubmit2}
               className="flex w-full justify-center rounded-md bg-indigo-500 px-3 py-2 text-sm font-semibold text-white hover:bg-indigo-400"
             >
               Sign Up
             </button>
-          </div>
-
-        </form>
       </div>
     </div>
   );
