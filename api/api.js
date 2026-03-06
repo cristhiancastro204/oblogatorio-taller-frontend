@@ -3,7 +3,7 @@ const URL = "https://api-react-taller-production.up.railway.app";
 const register = async (username, name, password) => {
   const response = await fetch(`${URL}/api/auth/register`, {
     method: "POST",
-    headers: { "Content-Type": "application/json" },
+    headers: { "Content-Type": "application/json" }, //buscar
     body: JSON.stringify({ username, name, password })
   });
   if (!response.ok) {
@@ -46,8 +46,29 @@ const postLocal = async (name, type, priceRange , city, zone, address , hours , 
 
 }
 
+///////////////////////////////////////////////////////
+//////////////Ver locales, GET///////////////////////////
+////////////////////////////////////////////////////////
+
+
+export const getLocals = async() =>{
+
+const data = await fetch(`${URL}/api/locals`).then(res => res.json()); ///parsea a json en una
+
+return data;
+
+
+} 
+
+
+
+
+
+
+
 export{
     register,
     login,
     postLocal,
+    getLocals ///// me quede bugueada aca, importantisimo exportar, hoy aprendimos algo. 
 }
