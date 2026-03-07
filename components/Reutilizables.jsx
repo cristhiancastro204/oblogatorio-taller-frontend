@@ -8,9 +8,9 @@ import Link from "next/link";
 export const Navbar = () => {
   const navItems = [
     { name: 'Home', href: '/Principal', active: true },
-    { name: 'Discover', href: '/Discover', active: false },
-    { name: 'Ratings', href: '/Raitings', active: false },
-    { name: 'Account', href: '/Profile', active: false },
+    { name: 'Discover', href: '/discover', active: false },
+    { name: 'Ratings', href: '/raitings', active: false },
+    { name: 'Account', href: '/profile', active: false },
     { name: 'Alta', href: '/Alta', active: false },
     { name: 'Log out', href: '/', active: false },
   ];

@@ -51,17 +51,39 @@ const postLocal = async (name, type, priceRange , city, zone, address , hours , 
 ////////////////////////////////////////////////////////
 
 
-export const getLocals = async() =>{
+const getLocals = async (filters = {}) => {
+    const { query, type, priceRange, rating, city, zone } = filters;
 
-const data = await fetch(`${URL}/api/locals`).then(res => res.json()); ///parsea a json en una
+    const params = new URLSearchParams();
 
-return data;
+    if (query)      params.append("q", query);
+    if (type)       params.append("type", type);
+    if (priceRange) params.append("priceRange", priceRange);
+    if (rating)     params.append("rating", rating);
+    if (city)       params.append("city", city);
+    if (zone)       params.append("zone", zone);
+
+    const data = await fetch(`${URL}/api/locals?${params.toString()}`).then(res => res.json());
+    return data;
+};
 
 
-} 
+const getDishes = async (filters = {}) => {
+    const { category, dateFrom, dateTo, city, zone, localId } = filters;
 
+    const params = new URLSearchParams();
 
+    if (category) params.append("category", category);
+    if (dateFrom)  params.append("dateFrom", dateFrom);
+    if (dateTo)    params.append("dateTo", dateTo);
+    if (city)      params.append("city", city);
+    if (zone)      params.append("zone", zone);
+    if (localId)   params.append("localId", localId);
 
+    const response = await fetch(`${URL}/api/dishes?${params.toString()}`);
+    const data = await response.json();
+    return data;
+};
 
 
 
@@ -70,5 +92,6 @@ export{
     register,
     login,
     postLocal,
-    getLocals ///// me quede bugueada aca, importantisimo exportar, hoy aprendimos algo. 
+    getLocals, ///// me quede bugueada aca, importantisimo exportar, hoy aprendimos algo. 
+    getDishes,
 }

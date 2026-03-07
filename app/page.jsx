@@ -32,7 +32,7 @@ export default function Login() {
 
   const handleSubmit2 = async (e) => {
   e.preventDefault();
-  router.push("/Register/");
+  router.push("/register/");
     //ver si tenemos que redirigir a otra pagina o mostrar un mensaje de error
   }
 
