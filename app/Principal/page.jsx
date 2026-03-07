@@ -72,12 +72,6 @@ useEffect(() => {
     </div>
     
     </div>
-  
-
- 
-    <h1>Pagina Principal Prueba
-      Cambios realizadossss
-    </h1>
 
 
   
