@@ -1,6 +1,3 @@
-
-
-
 import React from 'react';
 import Link from "next/link";
 
@@ -11,7 +8,8 @@ export const Navbar = () => {
     { name: 'Discover', href: '/discover', active: false },
     { name: 'Ratings', href: '/raitings', active: false },
     { name: 'Account', href: '/profile', active: false },
-    { name: 'Alta', href: '/Alta', active: false },
+    { name: 'New Local', href: '/NewLocal', active: false },
+    { name: 'New Food', href: '/NewFood', active: false },
     { name: 'Log out', href: '/', active: false },
   ];
 

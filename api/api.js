@@ -81,11 +81,24 @@ const getDishes = async (filters = {}) => {
     if (localId)   params.append("localId", localId);
 
     const response = await fetch(`${URL}/api/dishes?${params.toString()}`);
-    const data = await response.json();
-    return data;
+    if (!response.ok) return { items: [] };
+    const text = await response.text();
+    if (!text) return { items: [] };
+    return JSON.parse(text);
 };
 
-
+const postDish = async (name, category, price, description, city, localId, photos) => {
+    const response = await fetch(`${URL}/api/dishes`, {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+            "Authorization": `Bearer ${localStorage.getItem("token")}`
+        },
+        body: JSON.stringify({ name, category, price, description, city, localId, photos })
+    });
+    const data = await response.json();
+    console.log("Plato creado", data);
+}
 
 
 export{
@@ -94,4 +107,5 @@ export{
     postLocal,
     getLocals, ///// me quede bugueada aca, importantisimo exportar, hoy aprendimos algo. 
     getDishes,
+    postDish,
 }

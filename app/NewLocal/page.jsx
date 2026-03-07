@@ -1,18 +1,34 @@
 "use client";
-import { Navbar } from "../../components/Reutilizables"
-import {useState, useEffect} from "react";
+import { Navbar } from "../../components/Reutilizables";
+import { useState } from "react";
+import { postLocal } from "../../api/api";
 
+const NewLocal = () => {
+    const [name, setName] = useState("");
+    const [city, setCity] = useState("");
+    const [zone, setZone] = useState("");
+    const [address, setAddress] = useState("");
+    const [hours, setHours] = useState("");
+    const [type, setType] = useState("");
+    const [priceRange, setPriceRange] = useState("");
+    const [photo, setPhoto] = useState("");
+    const [photos, setPhotos] = useState([]);
 
-
-const handleClick = (e) => {
+    const handleAddPhoto = (e) => {
         e.preventDefault();
-        setPhotos([...photos, photo]);
-        setPhoto("");
-    }
+        if (photo) {
+            setPhotos([...photos, photo]);
+            setPhoto("");
+        }
+    };
 
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        await postLocal(name, type, priceRange, city, zone, address, hours, photos);
+        alert("Local created successfully!");
+        window.location.reload()
+    };
 
-
-const Alta = () => {
   return (
   <div>
     <Navbar></Navbar>
@@ -46,6 +62,7 @@ const Alta = () => {
                 id="Local name"
                 name="Local name"
                 type="text"
+                onChange={(e) => setName(e.target.value)}
                 autoComplete="given-name"
                 className="block w-full rounded-md bg-white px-3.5 py-2 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 dark:bg-white/5 dark:text-white dark:outline-white/10 dark:placeholder:text-gray-500 dark:focus:outline-indigo-500"
               />
@@ -60,6 +77,7 @@ const Alta = () => {
                 id="City"
                 name="City"
                 type="text"
+                onChange={(e) => setCity(e.target.value)}
                 autoComplete="family-name"
                 className="block w-full rounded-md bg-white px-3.5 py-2 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 dark:bg-white/5 dark:text-white dark:outline-white/10 dark:placeholder:text-gray-500 dark:focus:outline-indigo-500"
               />
@@ -74,6 +92,7 @@ const Alta = () => {
                 id="Zone"
                 name="Zone"
                 type="text"
+                onChange={(e) => setZone(e.target.value)}
                 autoComplete="organization"
                 className="block w-full rounded-md bg-white px-3.5 py-2 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 dark:bg-white/5 dark:text-white dark:outline-white/10 dark:placeholder:text-gray-500 dark:focus:outline-indigo-500"
               />
@@ -87,6 +106,7 @@ const Alta = () => {
               <input
                 id="Address"
                 name="Address"
+                onChange={(e) => setAddress(e.target.value)}
                 className="block w-full rounded-md bg-white px-3.5 py-2 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 dark:bg-white/5 dark:text-white dark:outline-white/10 dark:placeholder:text-gray-500 dark:focus:outline-indigo-500"
               />
             </div>
@@ -171,14 +191,14 @@ const Alta = () => {
           </div>
         </div>
         <button
-            onClick={handleClick}
+            onClick={handleAddPhoto}
             className="sm:col-span-2 block w-full rounded-md bg-indigo-600 px-3.5 py-2.5 text-center text-sm font-semibold text-white shadow-xs hover:bg-indigo-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 dark:bg-indigo-500 dark:hover:bg-indigo-400 dark:focus-visible:outline-indigo-500"
           >
             Add Photo
           </button>
         <div className="sm:col-span-2">
           <button
-            type="submit"
+            onClick={handleSubmit}
             className=" block w-full rounded-md bg-indigo-600 px-3.5 py-2.5 text-center text-sm font-semibold text-white shadow-xs hover:bg-indigo-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 dark:bg-indigo-500 dark:hover:bg-indigo-400 dark:focus-visible:outline-indigo-500"
           >
             Add Local
@@ -190,4 +210,4 @@ const Alta = () => {
 </div>
 );
 }
-export default Alta;
+export default NewLocal;
