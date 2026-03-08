@@ -121,6 +121,14 @@ const postDish = async (name, category, price, description, city, localId, photo
     console.log("Plato creado", data);
 }
 
+const getLocal = async (id) => {
+
+    const response = await fetch(`${URL}/api/locals/${id}`);
+
+    const data = await response.json();
+
+    return data;
+}
 
 export{
     register,
@@ -129,5 +137,6 @@ export{
     getLocals, ///// me quede bugueada aca, importantisimo exportar, hoy aprendimos algo. 
     getDishes,
     postDish,
-    getUser
+    getUser,
+    getLocal,
 }
