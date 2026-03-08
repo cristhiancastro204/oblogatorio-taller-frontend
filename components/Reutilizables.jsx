@@ -19,8 +19,6 @@ const [user, setUser] = useState(null);
 
   const navItems = [
     { name: 'Home', href: '/Principal', active: true },
-    { name: 'Discover', href: '/Discover', active: false },
-    { name: 'Ratings', href: '/Raitings', active: false },
     { name: 'Account', href: `/Profile/${user?.id}`, active: false },
     { name: 'New Local', href: '/NewLocal', active: false },
     { name: 'New Food', href: '/NewFood', active: false },

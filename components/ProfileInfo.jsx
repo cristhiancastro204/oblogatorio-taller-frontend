@@ -103,7 +103,7 @@ fetchUser();
                   </h3>
                   <p className="mt-1 text-sm text-gray-500">
                    
-                    Zone: ${local.zone} <br /> Adress: ${local.address} <br /> Hours: ${local.hours}
+                    Zone: {local.zone} <br /> Adress: {local.address} <br /> Hours: {local.hours}
                      </p>
                 </div>
                 <p className="text-sm font-medium text-gray-900">{local.price}</p>
