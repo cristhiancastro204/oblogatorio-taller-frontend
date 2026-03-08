@@ -4,7 +4,7 @@ import {getLocals, getDishes} from "../api/api" ////import para hacer el get loc
 import Link from "next/link";
 import Filtros from "../components/Filtros";
 
-const PER_PAGE = 8;
+const PER_PAGE = 8; //por pagina muestra ocho cards
 
 const Principal = () => {
     const [user, setUser] = useState(null);

@@ -1,13 +1,25 @@
+
+"use client"
 import React from 'react';
 import Link from "next/link";
+import { useState, useEffect } from 'react';
 
 
 export const Navbar = () => {
+
+
+const [user, setUser] = useState(null);
+
+  useEffect(() => {
+    const u = JSON.parse(localStorage.getItem("user"));
+    setUser(u);
+  }, []);
+
+
+
   const navItems = [
     { name: 'Home', href: '/Principal', active: true },
-    { name: 'Discover', href: '/discover', active: false },
-    { name: 'Ratings', href: '/raitings', active: false },
-    { name: 'Account', href: '/profile', active: false },
+    { name: 'Account', href: `/Profile/${user?.id}`, active: false },
     { name: 'New Local', href: '/NewLocal', active: false },
     { name: 'New Food', href: '/NewFood', active: false },
     { name: 'Log out', href: '/', active: false },
