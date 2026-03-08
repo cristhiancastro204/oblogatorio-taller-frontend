@@ -47,6 +47,23 @@ const postLocal = async (name, type, priceRange , city, zone, address , hours , 
 }
 
 ///////////////////////////////////////////////////////
+//////leo por id el usuario
+////////////////////////////////////////////////////////
+
+ export const getUser = async (id) => {
+
+const response = await fetch (`${URL}/api/users/${id}`)
+const data = await response.json();
+return data;
+
+
+}
+
+
+
+
+
+///////////////////////////////////////////////////////
 //////////////Ver locales, GET///////////////////////////
 ////////////////////////////////////////////////////////
 
@@ -67,6 +84,10 @@ const getLocals = async (filters = {}) => {
     return data;
 };
 
+
+///////////////////////////////////////////////////////
+//////////////Ver platos, GET///////////////////////////
+////////////////////////////////////////////////////////
 
 const getDishes = async (filters = {}) => {
     const { category, dateFrom, dateTo, city, zone, localId } = filters;
@@ -108,4 +129,5 @@ export{
     getLocals, ///// me quede bugueada aca, importantisimo exportar, hoy aprendimos algo. 
     getDishes,
     postDish,
+    getUser
 }
