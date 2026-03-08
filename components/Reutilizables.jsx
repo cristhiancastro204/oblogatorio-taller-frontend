@@ -47,7 +47,7 @@ const [user, setUser] = useState(null);
               <line x1="14" y1="1" x2="14" y2="4" />
             </svg>
           </div>
-          <span className="font-bold text-xl tracking-tight text-slate-900">Colonia<span className="text-orange-500">Eats</span></span>
+          <span className="font-bold text-xl tracking-tight text-slate-900">Rustas Del<span className="text-orange-500"> Sabor</span></span>
         </div>
 
         {/* Links de Navegación */}
@@ -70,12 +70,7 @@ const [user, setUser] = useState(null);
 
       {/* Lado Derecho: Acciones y Perfil */}
       <div className="flex items-center space-x-6">
-        {/* Botón New Rating (Cambiado a Orange) */}
-        <button className="flex items-center px-5 py-2.5 bg-orange-500 hover:bg-orange-600 text-white text-sm font-bold rounded-full transition-all shadow-md shadow-orange-100 active:scale-95"
-        >
-          <span className="mr-2 text-lg">+</span>
-          New rating
-        </button> 
+        
 
         {/* Avatar con anillo Orange */}
         <div className="relative group cursor-pointer">

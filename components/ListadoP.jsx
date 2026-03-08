@@ -4,7 +4,7 @@ import {getLocals, getDishes} from "../api/api" ////import para hacer el get loc
 import Link from "next/link";
 import Filtros from "../components/Filtros";
 
-const PER_PAGE = 8; //por pagina muestra ocho cards
+const PER_PAGE = 8;
 
 const Principal = () => {
     const [user, setUser] = useState(null);
@@ -87,9 +87,13 @@ const Principal = () => {
 
     return (
         <div>
-            <div className="bg-white">
+            <div className="bg-gray-100">
                 <div className="mx-auto max-w-2xl px-4 py-16 sm:px-6 sm:py-24 lg:max-w-7xl lg:px-8">
-                    <h2 className="text-2xl font-bold tracking-tight text-gray-900">Locales</h2>
+                    <h1 className="text-4xl font-bold tracking-tight text-[#ff7a00] text-center">
+  Discover new spots!
+  <br />
+  <br />
+</h1>
                     <Filtros setQuery={setQuery} setType={setType} setPriceRange={setPriceRange} setRating={setRating} setCity={setCity} setZone={setZone} />
 
                     {/* GRID */}
@@ -104,7 +108,7 @@ const Principal = () => {
                                 <div className="mt-4 flex justify-between">
                                     <div>
                                         <h3 className="text-sm text-gray-700">
-                                            <Link href={`/ViewLocal/${local.id}`}>
+                                            <Link href= {`/ViewLocal/${local.id}`}>
                                                 <span aria-hidden="true" className="absolute inset-0" />
                                                 {local.name}
                                             </Link>
@@ -124,7 +128,7 @@ const Principal = () => {
                             disabled={currentPage === 1}
                             className="px-4 py-2 rounded-md bg-gray-200 text-gray-700 text-sm font-medium hover:bg-orange-500 hover:text-white transition disabled:opacity-30 disabled:cursor-not-allowed"
                         >
-                            ← Anterior
+                            ← back
                         </button>
 
                         {Array.from({ length: totalPages }, (_, i) => i + 1).map(p => (
@@ -145,50 +149,54 @@ const Principal = () => {
                             disabled={currentPage === totalPages}
                             className="px-4 py-2 rounded-md bg-gray-200 text-gray-700 text-sm font-medium hover:bg-orange-500 hover:text-white transition disabled:opacity-30 disabled:cursor-not-allowed"
                         >
-                            Siguiente →
+                            next →
                         </button>
                     </div>
 
                     {/* INFO */}
                     <p className="text-center text-gray-400 text-sm mt-3">
-                        Mostrando {start + 1}–{Math.min(start + PER_PAGE, locals.length)} de {locals.length} locales
+                        showing {start + 1}–{Math.min(start + PER_PAGE, locals.length)} of {locals.length} locals
                     </p>
 
                 </div>
             </div>
             <div className="bg-white">
-            <div className="mx-auto max-w-2xl px-4 py-16 sm:px-6 sm:py-24 lg:max-w-7xl lg:px-8">
-                <h2 className="text-2xl font-bold tracking-tight text-gray-900">Platos</h2>
+            <div className="mx-auto max-w-2xl px-4 py-8 sm:px-6 sm:py-10 lg:max-w-7xl lg:px-8">
+               <h1 className="text-4xl font-bold tracking-tight text-[#ff7a00] text-center">
+  Discover new  flavors!
+  <br />
+  <br />
+</h1>
 
                 {/* FILTROS PLATOS */}
                 <div className="flex flex-row flex-wrap items-center justify-center gap-3 my-4">
                     <input
                         type="text"
-                        placeholder="Categoría (entrada, postre...)"
+                        placeholder="Category (starter, dessert...)"
                         onChange={(e) => setDishCategory(e.target.value)}
                         className="rounded-md bg-white px-3.5 py-2 text-base text-gray-900 outline-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:outline-indigo-600 w-52"
                     />
                     <input
                         type="date"
-                        placeholder="Desde"
+                        placeholder="from"
                         onChange={(e) => setDishDateFrom(e.target.value)}
                         className="rounded-md bg-white px-3.5 py-2 text-base text-gray-900 outline-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:outline-indigo-600 w-44"
                     />
                     <input
                         type="date"
-                        placeholder="Hasta"
+                        placeholder="to"
                         onChange={(e) => setDishDateTo(e.target.value)}
                         className="rounded-md bg-white px-3.5 py-2 text-base text-gray-900 outline-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:outline-indigo-600 w-44"
                     />
                     <input
                         type="text"
-                        placeholder="Zona / Ciudad"
+                        placeholder="Zone / City"
                         onChange={(e) => setDishCity(e.target.value)}
                         className="rounded-md bg-white px-3.5 py-2 text-base text-gray-900 outline-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:outline-indigo-600 w-44"
                     />
                     <input
                         type="text"
-                        placeholder="Local gastronómico"
+                        placeholder="Gastromic place"
                         onChange={(e) => setDishLocal(e.target.value)}
                         className="rounded-md bg-white px-3.5 py-2 text-base text-gray-900 outline-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:outline-indigo-600 w-48"
                     />
@@ -226,7 +234,7 @@ const Principal = () => {
                         disabled={dishPage === 1}
                         className="px-4 py-2 rounded-md bg-gray-200 text-gray-700 text-sm font-medium hover:bg-orange-500 hover:text-white transition disabled:opacity-30 disabled:cursor-not-allowed"
                     >
-                        ← Anterior
+                        ← back
                     </button>
 
                     {Array.from({ length: totalDishPages }, (_, i) => i + 1).map(p => (
@@ -247,13 +255,13 @@ const Principal = () => {
                         disabled={dishPage === totalDishPages}
                         className="px-4 py-2 rounded-md bg-gray-200 text-gray-700 text-sm font-medium hover:bg-orange-500 hover:text-white transition disabled:opacity-30 disabled:cursor-not-allowed"
                     >
-                        Siguiente →
+                        next →
                     </button>
                 </div>
 
                 {/* INFO PLATOS */}
                 <p className="text-center text-gray-400 text-sm mt-3">
-                    Mostrando {dishStart + 1}–{Math.min(dishStart + PER_PAGE, dishes.length)} de {dishes.length} platos
+                    showing {dishStart + 1}–{Math.min(dishStart + PER_PAGE, dishes.length)} of {dishes.length} dishes
                 </p>
             </div>
         </div>

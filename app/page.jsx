@@ -32,13 +32,13 @@ export default function Login() {
 
   const handleSubmit2 = async (e) => {
   e.preventDefault();
-  router.push("/register/");
+  router.push("/Register/");
     //ver si tenemos que redirigir a otra pagina o mostrar un mensaje de error
   }
 
 
   return (
-    <div className="flex min-h-screen flex-col justify-center px-6 py-12 lg:px-8 bg-gray-900">
+    <div className="flex min-h-screen flex-col justify-center px-6 py-12 lg:px-8 bg-gray-700">
       <div className="sm:mx-auto sm:w-full sm:max-w-sm">
         <h2 className="mt-10 text-center text-2xl font-bold text-white">
           Login your account
@@ -86,7 +86,7 @@ export default function Login() {
             <button
               type="submit"
               onClick={handleSubmit}
-              className="flex w-full justify-center rounded-md bg-indigo-500 px-3 py-2 text-sm font-semibold text-white hover:bg-indigo-400"
+              className="flex w-full justify-center rounded-md bg-gray-900 px-3 py-2 text-sm font-semibold text-white hover:bg-gray-800"
             >
               Sign In
             </button>
@@ -98,7 +98,7 @@ export default function Login() {
         <button
               type="button"
               onClick={handleSubmit2}
-              className="flex w-full justify-center rounded-md bg-indigo-500 px-3 py-2 text-sm font-semibold text-white hover:bg-indigo-400"
+              className="flex w-full justify-center rounded-md bg-gray-900 px-3 py-2 text-sm font-semibold text-white hover:bg-gray-800"
             >
               Sign Up
             </button>

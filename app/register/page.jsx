@@ -34,7 +34,7 @@ export default function Home() {
 
   return (
  
-    <div className="flex min-h-screen flex-col justify-center px-6 py-12 lg:px-8 bg-gray-900">
+    <div className="flex min-h-screen flex-col justify-center px-6 py-12 lg:px-8 bg-gray-700">
       <div className="sm:mx-auto sm:w-full sm:max-w-sm">
         <h2 className="mt-10 text-center text-2xl font-bold text-white">
           Create your account
@@ -72,7 +72,7 @@ export default function Home() {
                 type="text"
                 value={name}
                 onChange={(e) => setName(e.target.value)}
-                autoComplete="family-name"
+                autoComplete="given-name"
                 className="block w-full rounded-md bg-white/5 px-3 py-2 text-white outline outline-1 outline-white/10 focus:outline-2 focus:outline-indigo-500"
               />
             </div>
@@ -99,7 +99,8 @@ export default function Home() {
             <button
               type="submit"
               onClick={handleSubmit}
-              className="flex w-full justify-center rounded-md bg-indigo-500 px-3 py-2 text-sm font-semibold text-white hover:bg-indigo-400"
+              className="flex w-full justify-center rounded-md bg-gray-900 px-3 py-2 text-sm font-semibold text-white hover:bg-gray-800
+"
             >
               Sign Up
             </button>
@@ -110,7 +111,7 @@ export default function Home() {
         <button
               type="submit"
               onClick={handleSubmit2}
-              className="flex w-full justify-center rounded-md bg-indigo-500 px-3 py-2 text-sm font-semibold text-white hover:bg-indigo-400"
+              className="flex w-full justify-center rounded-md bg-gray-900 px-3 py-2 text-sm font-semibold text-white hover:bg-gray-800"
             >
               Sign In
         </button>

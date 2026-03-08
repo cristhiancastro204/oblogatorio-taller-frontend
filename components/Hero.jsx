@@ -19,7 +19,7 @@ import 'swiper/css/pagination';
   ];
 
   return (
-    <section className="relative w-full min-h-[75vh] md:min-h-[80vh] flex flex-col md:flex-row items-center overflow-hidden bg-white border-b border-slate-50">
+    <section className="relative w-full min-h-[75vh] md:min-h-[80vh] flex flex-col md:flex-row items-center overflow-hidden bg-gray-700 ">
       
       {/* LADO IZQUIERDO: Carrusel más compacto */}
       <div className="relative w-full md:w-1/2 h-[350px] md:h-[80vh]">
@@ -52,22 +52,20 @@ import 'swiper/css/pagination';
           Local Gastronomy Guide
         </span>
         
-        <h1 className="text-3xl md:text-5xl font-extrabold text-slate-900 leading-tight mb-4">
+        <h1 className="text-3xl md:text-5xl font-extrabold text-white leading-tight mb-4">
           The best flavors of <br />
           <span className="relative inline-block">
-            <span className="relative z-10 text-orange-500">Colonia.</span>
+            <span className="relative z-10 text-orange-500">Uruguay</span>
             <span className="absolute bottom-1 left-0 w-full h-3 bg-orange-100 -z-10"></span>
           </span>
         </h1>
         
-        <p className="text-slate-600 text-base md:text-lg mb-8 max-w-sm leading-relaxed">
+        <p className="text-white text-base md:text-lg mb-8 max-w-sm leading-relaxed">
           Discover where to eat today in the most magical city in Uruguay. 
           Expertly curated local spots.
         </p>
 
-        <button className="bg-orange-500 hover:bg-orange-600 text-white font-bold py-3.5 px-8 rounded-xl transition-all shadow-lg hover:shadow-orange-200 text-sm">
-          Explore Restaurants
-        </button>
+       
       </div>
 
       
