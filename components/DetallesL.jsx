@@ -108,17 +108,17 @@ const DetallesL = () => {
     {local.reviews?.map((review) => (
       <li
         key={review.id}
-        className="group rounded-xl bg-[#161616] border border-orange-500/20 hover:border-orange-500/40 transition-colors duration-200 px-5 py-4"
+       className="group rounded-xl bg-white border-5 border-orange-500/20 hover:border-orange-500/40 transition-colors duration-200 px-5 py-4"
       >
         <div className="flex items-center gap-4">
           <img
             alt="imagen de usuario"
-            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTFv_rUJ2Ru3GR0Jxy2YTNH_jrVzX3_HY-THQ&s"
+            src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=1974&auto=format&fit=crop"
             className="size-10 rounded-full ring-1 ring-orange-500/20 shrink-0"
           />
           <div className="flex flex-col gap-1">
             <Rating value={review.rating} readonly />
-            <p className="text-sm text-[#9a9189]">{review.comment}</p>
+            <p className="text-sm text-gray-800">{review.comment}</p>
           </div>
         </div>
       </li>

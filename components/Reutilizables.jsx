@@ -73,17 +73,18 @@ const [user, setUser] = useState(null);
         
 
         {/* Avatar con anillo Orange */}
-        <div className="relative group cursor-pointer">
-          <img
-            className="h-9 w-9 rounded-full ring-2 ring-transparent group-hover:ring-orange-500 transition-all object-cover"
-            src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=1974&auto=format&fit=crop"
-            alt="Profile"
-          />
-        </div>
-      </div>
-    </nav>
-  );
-};
+        <Link href={`/Profile/${user?.id}`}>
+  <div className="relative group cursor-pointer">
+    <img
+      className="h-9 w-9 rounded-full ring-2 ring-transparent group-hover:ring-orange-500 transition-all object-cover"
+      src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=1974&auto=format&fit=crop"
+      alt="Profile"
+    />
+  </div>
+</Link>
+  </div>
+  </nav>
+ )};
 
 
 
