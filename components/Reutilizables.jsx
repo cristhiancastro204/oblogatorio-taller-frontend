@@ -1,6 +1,6 @@
 
 "use client"
-import React from 'react';
+
 import Link from "next/link";
 import { useState, useEffect } from 'react';
 
@@ -18,7 +18,7 @@ const [user, setUser] = useState(null);
 
 
   const navItems = [
-    { name: 'Home', href: '/Principal', active: true },
+    { name: 'Home', href: '/Principal', active: false },
     { name: 'Account', href: `/Profile/${user?.id}`, active: false },
     { name: 'New Local', href: '/NewLocal', active: false },
     { name: 'New Food', href: '/NewFood', active: false },

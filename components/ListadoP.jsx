@@ -160,7 +160,7 @@ const Principal = () => {
 
                 </div>
             </div>
-            <div className="bg-white">
+            <div className="bg-gray-100">
             <div className="mx-auto max-w-2xl px-4 py-8 sm:px-6 sm:py-10 lg:max-w-7xl lg:px-8">
                <h1 className="text-4xl font-bold tracking-tight text-[#ff7a00] text-center">
   Discover new  flavors!
@@ -214,7 +214,7 @@ const Principal = () => {
                             <div className="mt-4 flex justify-between">
                                 <div>
                                     <h3 className="text-sm text-gray-700">
-                                        <Link href={"/"}>
+                                        <Link href={"/ViewLocal/" + dish.localId}>
                                             <span aria-hidden="true" className="absolute inset-0" />
                                             {dish.name}
                                         </Link>
