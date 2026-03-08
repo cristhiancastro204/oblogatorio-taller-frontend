@@ -2,7 +2,7 @@
 import { useEffect, useState } from "react";
 import { useParams } from "next/navigation";
 import {getUser} from "../api/api";
-
+import Link from "next/link";
 
 
 
@@ -47,23 +47,6 @@ fetchUser();
               alt="User"
               className="w-32 h-32 rounded-full object-cover ring-4 ring-orange-50"
             />
-
-            <button className="absolute bottom-0 right-0 bg-orange-500 text-white p-2 rounded-full shadow-lg hover:bg-orange-600 transition-colors">
-              <svg
-                className="w-4 h-4"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z"
-                />
-              </svg>
-            </button>
-
           </div>
 
           <h1 className="text-2xl font-bold text-slate-900">
@@ -108,6 +91,10 @@ fetchUser();
                 </div>
                 <p className="text-sm font-medium text-gray-900">{local.price}</p>
               </div>
+              <Link href={`/ViewLocal/${local.id}`}>
+                <span aria-hidden="true" className="absolute inset-0" />
+                {local.name}
+              </Link>
             </div>
           ))}
         </div>

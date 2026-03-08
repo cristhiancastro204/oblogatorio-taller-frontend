@@ -4,6 +4,8 @@ import { getLocal } from "../api/api";
 import { FingerPrintIcon, CloudArrowUpIcon, LockClosedIcon, ServerIcon } from '@heroicons/react/20/solid'
 import Link from "next/link";
 import { Navbar } from "./Reutilizables";
+import { Rating } from "@material-tailwind/react";
+import Rating2 from "./Rating2";
 
 const DetallesL = () => {
   const [local, setLocal] = useState({});
@@ -63,7 +65,7 @@ const DetallesL = () => {
             </dl>
 
             <Link
-              href={`/Perfil/${local.creatorId}`}
+              href={`/Profile/${local.creator?.id}`}
               className="inline-flex items-center gap-2 text-[13px] text-[#6b6460] hover:text-orange-500 transition-colors w-fit"
             >
               <span className="text-[11px] opacity-60">↗</span>
@@ -86,6 +88,36 @@ const DetallesL = () => {
           </div>
 
         </div>
+
+        <Rating2 id={local.id} name={local.name} setRefresh={setRefresh} />
+
+<div className="mx-auto max-w-6xl px-8 pb-20">
+  <div className="mb-8">
+    <div className="w-10 h-0.5 bg-gradient-to-r from-orange-500 to-transparent rounded mb-4" />
+    <h2 className="text-xs font-semibold tracking-widest uppercase text-[#6b6460]">Reseñas</h2>
+  </div>
+
+  <ul role="list" className="grid gap-4 sm:grid-cols-2">
+    {local.reviews?.map((review) => (
+      <li
+        key={review.id}
+        className="group rounded-xl bg-[#161616] border border-orange-500/20 hover:border-orange-500/40 transition-colors duration-200 px-5 py-4"
+      >
+        <div className="flex items-center gap-4">
+          <img
+            alt="imagen de usuario"
+            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTFv_rUJ2Ru3GR0Jxy2YTNH_jrVzX3_HY-THQ&s"
+            className="size-10 rounded-full ring-1 ring-orange-500/20 shrink-0"
+          />
+          <div className="flex flex-col gap-1">
+            <Rating value={review.rating} readonly />
+            <p className="text-sm text-[#9a9189]">{review.comment}</p>
+          </div>
+        </div>
+      </li>
+    ))}
+  </ul>
+</div>
       </div>
     </>
   );
