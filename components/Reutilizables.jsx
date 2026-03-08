@@ -76,7 +76,7 @@ const [user, setUser] = useState(null);
         <div className="relative group cursor-pointer">
           <img
             className="h-9 w-9 rounded-full ring-2 ring-transparent group-hover:ring-orange-500 transition-all object-cover"
-            src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
+            src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=1974&auto=format&fit=crop"
             alt="Profile"
           />
         </div>

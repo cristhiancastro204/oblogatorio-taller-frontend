@@ -30,7 +30,14 @@ const DetallesL = () => {
   return (
     <>
       <Navbar />
-      <div className="min-h-screen bg-[#0e0e0e] text-[#e8e0d5]">
+
+
+
+
+      
+      <div className="min-h-screen bg-white text-gray-800">
+
+        
         <div className="mx-auto max-w-6xl px-8 py-20 grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
 
           {/* LEFT — INFO */}
@@ -40,7 +47,7 @@ const DetallesL = () => {
               <span>●</span> Local
             </span>
 
-            <h1 className="text-5xl font-extrabold text-[#f5f0ea] leading-tight tracking-tight mb-5">
+            <h1 className="text-5xl font-extrabold text-gray-800 leading-tight tracking-tight mb-5">
               {local.name}
             </h1>
 
@@ -58,17 +65,17 @@ const DetallesL = () => {
                   <div className="w-9 h-9 rounded-lg bg-orange-500/10 flex items-center justify-center shrink-0">
                     <feature.icon aria-hidden="true" className="w-4 h-4 text-orange-500" />
                   </div>
-                  <span className="text-[13px] font-semibold text-[#c8bfb5] w-16">{feature.name}</span>
-                  <span className="text-[13px] text-[#6b6460]">{feature.description}</span>
+                  <span className="text-[15px] font-semibold text-[#c8bfb5] w-16">{feature.name}</span>
+                  <span className="text-[15px] text-[#6b6460]">{feature.description}</span>
                 </div>
               ))}
             </dl>
 
             <Link
               href={`/Profile/${local.creator?.id}`}
-              className="inline-flex items-center gap-2 text-[13px] text-[#6b6460] hover:text-orange-500 transition-colors w-fit"
+              className="inline-flex items-center gap-2 text-[30px] text-[#6b6460] hover:text-orange-500 transition-colors w-fit"
             >
-              <span className="text-[11px] opacity-60">↗</span>
+              <span className="text-[30px] opacity-60">Creator:</span>
               {local.creator?.name}
             </Link>
           </div>
