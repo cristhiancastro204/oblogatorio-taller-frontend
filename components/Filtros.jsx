@@ -7,9 +7,9 @@ const Filtros = ({setQuery , setType , setPriceRange , setRating , setCity , set
      <div className="flex flex-row flex-wrap items-center justify-center gap-3 my-4">
         <input
                 id="query"
-                name="query"
+                name="Query"
                 type="text"
-                placeholder="Query"
+                placeholder="Name"
                 onChange={(e) => setQuery(e.target.value)}
                 className={inputClass}
               />
